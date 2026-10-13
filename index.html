@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Survey</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+            background-color: #f0f3f5;
+            color: #333333;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .survey-container {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-top: 6px solid #4a90e2;
+            border-radius: 4px;
+            padding: 30px 40px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            color: #222222;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #666666;
+            margin: 0 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .label-title {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #222222;
+        }
+
+        .required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
+
+        select {
+            width: 50%;
+            padding: 8px 10px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 14px;
+            background-color: #fff;
+        }
+
+        .radio-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .radio-item input {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        /* Matrix Table Styling */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .matrix-table th, 
+        .matrix-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .matrix-table th {
+            font-weight: 600;
+            color: #444444;
+            background-color: #fafafa;
+        }
+
+        .matrix-table th:first-child,
+        .matrix-table td:first-child {
+            text-align: left;
+            width: 35%;
+            font-weight: normal;
+        }
+
+        .matrix-table tr:nth-child(even) {
+            background-color: #fbfbfb;
+        }
+
+        .matrix-table input[type="radio"] {
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #4a90e2;
+            color: #ffffff;
+            border: none;
+            padding: 10px 24px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="survey-container">
+        <div class="header">
+            <h1>Market Research Survey</h1>
+            <p>Please take a few moments to complete this satisfaction survey.</p>
+        </div>
+
+        <form action="#" method="POST">
+            <!-- Question 1: Dropdown Age -->
+            <div class="form-group">
+                <label for="age" class="label-title">What is your age range?<span class="required">*</span></label>
+                <select id="age" name="age" required>
+                    <option value="" disabled selected>-- Select an age group --</option>
+                    <option value="18-24">18 - 24</option>
+                    <option value="25-34">25 - 34</option>
+                    <option value="35-50">35 - 50</option>
+                    <option value="50+">50+</option>
+                </select>
+            </div>
+
+            <!-- Question 2: Radio Frequency -->
+            <div class="form-group">
+                <span class="label-title">How often do you purchase our products?<span class="required">*</span></span>
+                <div class="radio-list">
+                    <label class="radio-item">
+                        <input type="radio" name="purchase_frequency" value="daily" required> Daily
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="purchase_frequency" value="weekly"> Weekly
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="purchase_frequency" value="monthly"> Monthly
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="purchase_frequency" value="rarely"> Rarely
+                    </label>
+                </div>
+            </div>
+
+            <!-- Question 3: Matrix Rating -->
+            <div class="form-group">
+                <span class="label-title">Please rate the following aspects of our service:<span class="required">*</span></span>
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Very Poor</th>
+                            <th>Poor</th>
+                            <th>Neutral</th>
+                            <th>Good</th>
+                            <th>Excellent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product Quality</td>
+                            <td><input type="radio" name="quality" value="1" required></td>
+                            <td><input type="radio" name="quality" value="2"></td>
+                            <td><input type="radio" name="quality" value="3"></td>
+                            <td><input type="radio" name="quality" value="4"></td>
+                            <td><input type="radio" name="quality" value="5"></td>
+                        </tr>
+                        <tr>
+                            <td>Customer Support</td>
+                            <td><input type="radio" name="support" value="1" required></td>
+                            <td><input type="radio" name="support" value="2"></td>
+                            <td><input type="radio" name="support" value="3"></td>
+                            <td><input type="radio" name="support" value="4"></td>
+                            <td><input type="radio" name="support" value="5"></td>
+                        </tr>
+                        <tr>
+                            <td>Value for Money</td>
+                            <td><input type="radio" name="value" value="1" required></td>
+                            <td><input type="radio" name="value" value="2"></td>
+                            <td><input type="radio" name="value" value="3"></td>
+                            <td><input type="radio" name="value" value="4"></td>
+                            <td><input type="radio" name="value" value="5"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Question 4: Feedback Textarea -->
+            <div class="form-group">
+                <label for="comments" class="label-title">Do you have any suggestions for improving our product?</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Enter your comments here..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group" style="margin-bottom: 0;">
+                <button type="submit" class="submit-btn">Submit Survey</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
